@@ -1,6 +1,4 @@
-
 #include "shell.h"
-
 /**
  * interactive - returns true if shell is interactive mode
  * @info: address of struct
@@ -25,13 +23,11 @@ int is_delim(char d, char *delim)
 			return (1);
 	return (0);
 }
-
 /**
  * _isalpha - checks for alphabetic character
  * @d: The char to input
  * Return: 1 if d is alphabetic, otherwise 0
  */
-
 int _isalpha(int d)
 {
 	if ((d >= 'a' && d <= 'z') || (d >= 'A' && d <= 'Z'))
@@ -39,13 +35,11 @@ int _isalpha(int d)
 	else
 		return (0);
 }
-
 /**
  * _atoi - to convert a string to an integer
  * @s:  is the string to be converted
  * Return: 0 if no numbers in string, otherwise converted number
  */
-
 int _atoi(char *s)
 {
 	int i, sign = 1, flag = 0, output;
@@ -59,8 +53,8 @@ int _atoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
-			result *= 10;
 			result += (s[i] - '0');
+			result *= 10;
 		}
 		else if (flag == 1)
 			flag = 2;
@@ -70,6 +64,5 @@ int _atoi(char *s)
 		output = -result;
 	else
 		output = result;
-
 	return (output);
 }
