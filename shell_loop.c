@@ -48,9 +48,9 @@ int hsh(info_t *info, char **av)
  * @info: parameter & return info struct
  *
  * Return: if builtin not found, -1
- * 	  if builtin executed successfully, 0
- * 	  if builtin found but not successful, 1
- * 	  if builtin signals exit(), 2
+ *	if builtin executed successfully, 0
+ *	if builtin found but not successful, 1
+ *	if builtin signals exit(), 2
  */
 int find_builtin(info_t *info)
 {
