@@ -1,32 +1,32 @@
 #include "shell.h"
 
 /**
- * hsh - loop of main shell
- * @info: parameter & return info struct
- * @av: argument vector from main()
+ * hsh - main shell loop
+ * @info: the parameter & return info struct
+ * @av: the argument vector from main()
  *
- * Return: 1 error, 0 on success.
+ * Return: 0 on success, 1 on error, or error code
  */
 int hsh(info_t *info, char **av)
 {
-	int builtin_ret = 0;
 	ssize_t r = 0;
+	int builtin_ret = 0;
 
 	while (r != -1 && builtin_ret != -2)
 	{
-		if (interactive(info))
 		clear_info(info);
+		if (interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
-		if (r != -1)
 		r = get_input(info);
+		if (r != -1)
 		{
 			set_info(info, av);
-			if (builtin_ret == -1)
 			builtin_ret = find_builtin(info);
+			if (builtin_ret == -1)
 				find_cmd(info);
 		}
-		if (interactive(info))
+		else if (interactive(info))
 			_putchar('\n');
 		free_info(info, 0);
 	}
@@ -44,25 +44,25 @@ int hsh(info_t *info, char **av)
 }
 
 /**
- * @info: parameter & return info struct
  * find_builtin - finds a builtin command
+ * @info: the parameter & return info struct
  *
- * Return: if builtin not found, -1
- * 	   if builtin executed successfully, 0
- * 	   if builtin found but not successful, 1
- * 	   if builtin signals exit() 2
+ * Return: -1 if builtin not found,
+ * 0 if builtin executed successfully,
+ * 1 if builtin found but not successful,
+ * 2 if builtin signals exit()
  */
 int find_builtin(info_t *info)
 {
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
-		{"help", _myhelp},
 		{"env", _myenv},
-		{"setenv", _mysetenv},
+		{"help", _myhelp},
 		{"history", _myhistory},
-		{"cd", _mycd},
+		{"setenv", _mysetenv},
 		{"unsetenv", _myunsetenv},
+		{"cd", _mycd},
 		{"alias", _myalias},
 		{NULL, NULL}
 	};
@@ -79,20 +79,20 @@ int find_builtin(info_t *info)
 
 /**
  * find_cmd - finds a command in PATH
- * @info: parameter & return info struct
+ * @info: the parameter & return info struct
  *
  * Return: void
  */
 void find_cmd(info_t *info)
 {
-	int i, k;
 	char *path = NULL;
+	int i, k;
 
 	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
 	{
-		info->linecount_flag = 0;
 		info->line_count++;
+		info->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
 		if (!is_delim(info->arg[i], " \t\n"))
@@ -103,8 +103,8 @@ void find_cmd(info_t *info)
 	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
 	if (path)
 	{
-		fork_cmd(info);
 		info->path = path;
+		fork_cmd(info);
 	}
 	else
 	{
@@ -120,7 +120,8 @@ void find_cmd(info_t *info)
 }
 
 /**
- * @info: parameter & return info struct
+ * fork_cmd - forks a an exec thread to run cmd
+ * @info: the parameter & return info struct
  *
  * Return: void
  */
@@ -157,3 +158,4 @@ void fork_cmd(info_t *info)
 		}
 	}
 }
+
