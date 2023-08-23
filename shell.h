@@ -49,7 +49,7 @@ typedef struct liststr
 	int num;
 	char *str;
 	struct liststr *next;
-}list_t;
+} list_t;
 
 /**
  * @env_changed: on if environ was changed
@@ -71,10 +71,10 @@ typedef struct liststr
  * @env: linked list local copy of environ
  * @environ: custom modified copy of environ from LL env
  * @history: the history node
- * @alias: the alias node 
+ * @alias: the alias node
  */
 
- 
+
 typedef struct passinfo
 {
 	char *arg;
