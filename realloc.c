@@ -38,7 +38,7 @@ void ffree(char **pp)
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *p;
-	
+
 	if (!ptr)
 		return (malloc(new_size));
 	if (!new_size)
