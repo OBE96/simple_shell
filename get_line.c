@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * bring_line - assigns the line var for get_line
  * @lineptr: Buffer that store the input str
@@ -33,11 +32,13 @@ void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 		free(buffer);
 	}
 }
+
+
 /**
- * get_line - Read inpt from stream
- * @lineptr: buffer that stores the input
- * @n: size of lineptr
- * @stream: stream to read from
+ * get_line - it helps to Read inpt from stream
+ * @stream: helps to stream to read from
+ * @lineptr: this is the buffer that stores the input
+ * @n: this is the size of lineptr
  * Return: The number of bytes
  */
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream)

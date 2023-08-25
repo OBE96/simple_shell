@@ -1,17 +1,16 @@
 #include "shell.h"
-
 /**
- * check_env - checks if the typed variable is an env variable
- *
- * @h: head of linked list
- * @in: input string
- * @data: data structure
+ * check_env - helps to checks if the typed variable is an env variable
+ * @in: this is the input string
+ * @h: this is the head of linked list
+ * @data: the data structure
  * Return: no return
  */
 void check_env(r_var **h, char *in, data_shell *data)
 {
 	int row, chr, j, lval;
 	char **_envr;
+
 
 	_envr = data->_environ;
 	for (row = 0; _envr[row]; row++)
@@ -40,14 +39,12 @@ void check_env(r_var **h, char *in, data_shell *data)
 
 	add_rvar_node(h, j, NULL, 0);
 }
-
 /**
- * check_vars - check if the typed variable is $$ or $?
- *
- * @h: head of the linked list
- * @in: input string
- * @st: last status of the Shell
- * @data: data structure
+ * check_vars - it helps to check if the typed variable is $$ or $?
+ * @st: the last status of the Shell
+ * @h: the head of the linked list
+ * @in: the input string
+ * @data: this is the data structure
  * Return: no return
  */
 int check_vars(r_var **h, char *in, char *st, data_shell *data)
@@ -82,15 +79,13 @@ int check_vars(r_var **h, char *in, char *st, data_shell *data)
 
 	return (i);
 }
-
 /**
- * replaced_input - replaces string into variables
- *
- * @head: head of the linked list
- * @input: input string
- * @new_input: new input string (replaced)
- * @nlen: new length
- * Return: replaced string
+ * replaced_input - it replaces string into variables
+ * @input: the input string
+ * @head: this is head of the linked list
+ * @new_input: rhe new input string (replaced)
+ * @nlen: the new length
+ * Return: return replaced string
  */
 char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
 {
@@ -134,13 +129,11 @@ char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
 
 	return (new_input);
 }
-
 /**
  * rep_var - calls functions to replace string into vars
- *
- * @input: input string
- * @datash: data structure
- * Return: replaced string
+ * @input: the input string
+ * @datash: the data structure
+ * Return: return replaced string
  */
 char *rep_var(char *input, data_shell *datash)
 {

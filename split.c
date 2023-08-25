@@ -1,11 +1,9 @@
 #include "shell.h"
-
 /**
  * swap_char - swaps | and & for non-printed chars
- *
- * @input: input string
- * @bool: type of swap
- * Return: swapped string
+ * @input: the input string
+ * @bool: swap type
+ * Return: return swapped string
  */
 char *swap_char(char *input, int bool)
 {
@@ -42,13 +40,11 @@ char *swap_char(char *input, int bool)
 	}
 	return (input);
 }
-
 /**
- * add_nodes - add separators and command lines in the lists
- *
- * @head_s: head of separator list
- * @head_l: head of command lines list
+ * add_nodes - separators and command lines is added in the lists
+ * @head_s: separator list head
  * @input: input string
+ * @head_l: command lines list head
  * Return: no return
  */
 void add_nodes(sep_list **head_s, line_list **head_l, char *input)
@@ -78,13 +74,11 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 	} while (line != NULL);
 
 }
-
 /**
  * go_next - go to the next command line stored
- *
- * @list_s: separator list
- * @list_l: command line list
- * @datash: data structure
+ * @list_s: the separator list
+ * @list_l: the command line list
+ * @datash: the data structure
  * Return: no return
  */
 void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
@@ -120,14 +114,12 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
 	*list_s = ls_s;
 	*list_l = ls_l;
 }
-
 /**
  * split_commands - splits command lines according to
  * the separators ;, | and &, and executes them
- *
- * @datash: data structure
- * @input: input string
- * Return: 0 to exit, 1 to continue
+ * @datash: the data structure
+ * @input: the input string
+ * Return: return 0 to exit,returns 1 to continue
  */
 int split_commands(data_shell *datash, char *input)
 {
@@ -167,12 +159,10 @@ int split_commands(data_shell *datash, char *input)
 		return (0);
 	return (1);
 }
-
 /**
  * split_line - tokenizes the input string
- *
- * @input: input string.
- * Return: string splitted.
+ * @input: the input string.
+ * Return: return the string splitted.
  */
 char **split_line(char *input)
 {

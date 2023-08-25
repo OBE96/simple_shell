@@ -1,12 +1,9 @@
 #include "shell.h"
-
 /**
- * cmp_env_name - compares env variables names
- * with the name passed.
- * @nenv: name of the environment variable
- * @name: name passed
- *
- * Return: 0 if are not equal. Another value if they are.
+ * cmp_env_name - compares env variables names  with the name passed.
+ * @name: name that is passed
+ * @nenv: name of env variable
+ * Return: 0 if are not equal. Another value if they are equal.
  */
 int cmp_env_name(const char *nenv, const char *name)
 {
@@ -22,14 +19,12 @@ int cmp_env_name(const char *nenv, const char *name)
 
 	return (i + 1);
 }
-
 /**
- * _getenv - get an environment variable
- * @name: name of the environment variable
+ * _getenv - an environment variable is gotten
+ * @name: this is the name of environment variable
  * @_environ: environment variable
- *
- * Return: value of the environment variable if is found.
- * In other case, returns NULL.
+ * Return: value of the env variable if is found.
+ * If it is not found, returns NULL.
  */
 char *_getenv(const char *name, char **_environ)
 {
@@ -54,10 +49,8 @@ char *_getenv(const char *name, char **_environ)
 
 	return (ptr_env + mov);
 }
-
 /**
- * _env - prints the evironment variables
- *
+ * _env - prints the env variables
  * @datash: data relevant.
  * Return: 1 on success.
  */
