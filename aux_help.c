@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * aux_help_env - Help information for the builtin env
  * Return: no return
@@ -11,7 +10,6 @@ void aux_help_env(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "Print the enviroment of the shell.\n";
 	write(STDOUT_FILENO, help, _strlen(help));
-
 }
 /**
  * aux_help_setenv - Help information for the builtin setenv
@@ -19,7 +17,6 @@ void aux_help_env(void)
  */
 void aux_help_setenv(void)
 {
-
 	char *help = "setenv: setenv (const char *name, const char *value,";
 
 	write(STDOUT_FILENO, help, _strlen(help));
@@ -40,10 +37,8 @@ void aux_help_unsetenv(void)
 	help = "Remove an entry completely from the environment\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
-
-
 /**
- * aux_help_general - Entry point for help information for the help builtin
+ * aux_help_general - Point entry for help info for the help builtin
  * Return: no return
  */
 void aux_help_general(void)
@@ -65,7 +60,7 @@ void aux_help_general(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 }
 /**
- * aux_help_exit - Help information fot the builint exit
+ * aux_help_exit - Help info fot the builint exit
  * Return: no return
  */
 void aux_help_exit(void)
@@ -78,4 +73,3 @@ void aux_help_exit(void)
 	help = "statusis that of the last command executed\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
-

@@ -1,11 +1,9 @@
 #include "shell.h"
-
 /**
- * add_sep_node_end - adds a separator found at the end
- * of a sep_list.
- * @head: head of the linked list.
+ * add_sep_node_end - adds separator found at the end a sep_list
+ * @head: head of linked list.
  * @sep: separator found (; | &).
- * Return: address of the head.
+ * Return: the head address
  */
 sep_list *add_sep_node_end(sep_list **head, char sep)
 {
@@ -32,10 +30,9 @@ sep_list *add_sep_node_end(sep_list **head, char sep)
 
 	return (*head);
 }
-
 /**
  * free_sep_list - frees a sep_list
- * @head: head of the linked list.
+ * @head: head of linked list.
  * Return: no return.
  */
 void free_sep_list(sep_list **head)
@@ -87,7 +84,6 @@ line_list *add_line_node_end(line_list **head, char *line)
 
 	return (*head);
 }
-
 /**
  * free_line_list - frees a line_list
  * @head: head of the linked list.
@@ -109,4 +105,3 @@ void free_line_list(line_list **head)
 		*head = NULL;
 	}
 }
-

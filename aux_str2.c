@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * _strdup - duplicates a str in the heap memory.
  * @s: Type char pointer str
@@ -17,9 +16,8 @@ char *_strdup(const char *s)
 	_memcpy(new, s, len + 1);
 	return (new);
 }
-
 /**
- * _strlen - Returns the lenght of a string.
+ * _strlen - Returns lenght of a string.
  * @s: Type char pointer
  * Return: Always 0.
  */
@@ -32,13 +30,11 @@ int _strlen(const char *s)
 	}
 	return (len);
 }
-
 /**
  * cmp_chars - compare chars of strings
  * @str: input string.
  * @delim: delimiter.
- *
- * Return: 1 if are equals, 0 if not.
+ * Return: 0 if not equals, 1 if equal.
  */
 int cmp_chars(char str[], const char *delim)
 {
@@ -59,12 +55,10 @@ int cmp_chars(char str[], const char *delim)
 		return (1);
 	return (0);
 }
-
 /**
  * _strtok - splits a string by some delimiter.
  * @str: input string.
  * @delim: delimiter.
- *
  * Return: string splited.
  */
 char *_strtok(char str[], const char *delim)
@@ -109,10 +103,8 @@ char *_strtok(char str[], const char *delim)
 		return (NULL);
 	return (str_start);
 }
-
 /**
  * _isdigit - defines if string passed is a number
- *
  * @s: input string
  * Return: 1 if string is a number. 0 in other case.
  */
@@ -127,4 +119,3 @@ int _isdigit(const char *s)
 	}
 	return (1);
 }
-
